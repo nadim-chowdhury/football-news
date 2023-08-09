@@ -58,7 +58,7 @@ export const teams = [
       },
       {
         id: 12,
-        name: "Eintracht Frankfurt",
+        name: "Frankfurt",
       },
     ],
   },
