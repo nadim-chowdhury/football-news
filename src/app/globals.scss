@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.txt_gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-blue-600;
+}
+
+.header_hover {
+  @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-600 hover:to-blue-600 hover:transition-all hover:duration-300;
+}
