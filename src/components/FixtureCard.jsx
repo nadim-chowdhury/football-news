@@ -1,9 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FixtureCard({ data }) {
   const { fixture, league, teams, goals, score } = data;
   return (
-    <div className="border rounded-lg bg-white p-4 flex flex-col justify-between">
+    <Link
+      href={`/fixture/${fixture.id}`}
+      className="border rounded-lg bg-white p-4 flex flex-col justify-between"
+    >
       <div className="flex justify-between items-center">
         <div className="flex flex-col justify-center w-[40%]">
           <Image
@@ -33,6 +37,6 @@ export default function FixtureCard({ data }) {
       <h4 className="mt-4 py-2 rounded-lg text-center border">
         UTC: {new Date(fixture.timestamp * 1000).toLocaleTimeString()}
       </h4>
-    </div>
+    </Link>
   );
 }

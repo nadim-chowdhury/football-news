@@ -3,7 +3,7 @@ import { FiMenu } from "react-icons/fi";
 
 export default function Header() {
   return (
-    <header className="bg-white flex justify-between items-center py-5 shadow px-4 sticky top-0">
+    <header className="bg-white flex justify-between items-center py-5 shadow px-4 sticky top-0 mb-14">
       <div className="text-slate-800">
         <Link href="/" className="text-2xl font-bold uppercase txt_gradient">
           FootHub
