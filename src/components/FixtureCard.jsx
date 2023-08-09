@@ -5,7 +5,7 @@ export default function FixtureCard({ data }) {
   const { fixture, league, teams, goals, score } = data;
   return (
     <Link
-      href={`/fixture/${fixture.id}`}
+      href={`/match/${fixture.id}`}
       className="border rounded-lg bg-white p-4 flex flex-col justify-between"
     >
       <div className="flex justify-between items-center">
@@ -15,7 +15,7 @@ export default function FixtureCard({ data }) {
             alt=""
             width={48}
             height={48}
-            className="mx-auto"
+            className="mx-auto h-16 object-contain"
           />
           <p className="mt-4 font-bold text-center">{teams.home.name}</p>
         </div>
@@ -28,7 +28,7 @@ export default function FixtureCard({ data }) {
             alt=""
             width={48}
             height={48}
-            className="mx-auto"
+            className="mx-auto h-16 object-contain"
           />
           <p className="mt-4 font-bold text-center">{teams.away.name}</p>
         </div>

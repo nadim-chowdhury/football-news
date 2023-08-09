@@ -5,7 +5,8 @@ import FixtureCard from "./FixtureCard";
 
 export default function Fixtures() {
   const [fixtures, setFixtures] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const currentDate = new Date();
@@ -42,17 +43,34 @@ export default function Fixtures() {
             item.league.country === "Spain" ||
             item.league.country === "Germany" ||
             item.league.country === "Italy" ||
-            item.league.country === "France"
+            item.league.country === "France" ||
+            item.league.country === "USA"
         );
 
         setFixtures(filteredResponse);
+        setLoading(false);
       } catch (error) {
-        console.error("Error:", error.message);
+        setError(error);
+        setLoading(false);
       }
     };
 
     fetchFixtures();
   }, []);
+
+  if (loading) {
+    return (
+      <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-center text-xl font-bold txt_gradient">
+        Error loading fixture data.
+      </p>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4 select-none">
