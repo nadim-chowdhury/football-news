@@ -5,6 +5,7 @@ import FixtureCard from "./FixtureCard";
 
 export default function Fixtures() {
   const [fixtures, setFixtures] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const currentDate = new Date();
@@ -54,7 +55,7 @@ export default function Fixtures() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14 mx-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 mx-4">
       {fixtures.map((data) => (
         <FixtureCard key={data.fixture.id} data={data} />
       ))}

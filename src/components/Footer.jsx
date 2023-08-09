@@ -1,10 +1,10 @@
-import { teams } from "@/utils/teams";
+import { teams } from "../utils/teams";
 import Link from "next/link";
 import { AiOutlineGlobal, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-100 py-8">
+    <footer className="bg-white pt-12 pb-8 border-t">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 text-center mb-8 px-4">
         {teams.map((team) => (
           <div key={team.league}>
