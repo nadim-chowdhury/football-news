@@ -1,29 +1,29 @@
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { FiMenu } from "react-icons/fi";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center py-6 shadow px-4 sticky top-0">
+    <header className="bg-white flex justify-between items-center py-5 shadow px-4 sticky top-0">
       <div className="text-slate-800">
-        <Link href="/" className="text-3xl font-bold txt_gradient">
+        <Link href="/" className="text-2xl font-bold uppercase txt_gradient">
           FootHub
         </Link>
       </div>
 
       <div className="text-slate-800 hidden sm:block">
-        <Link href="/teams" className="mr-4 header_hover">
+        <Link href="/teams" className="mr-4 txt_hover">
           Teams
         </Link>
-        <Link href="/leagues" className="mr-4 header_hover">
+        <Link href="/leagues" className="mr-4 txt_hover">
           Leagues
         </Link>
-        <Link href="/countries" className="header_hover">
+        <Link href="/countries" className="txt_hover">
           Countries
         </Link>
       </div>
 
-      <div className="block sm:hidden text-xl">
-        <GiHamburgerMenu />
+      <div className="block sm:hidden text-2xl txt_hover hover:text-rose-500">
+        <FiMenu />
       </div>
     </header>
   );
