@@ -38,6 +38,10 @@ export default function Header() {
         <Link href="/countries" className="mt-4 txt_hover">
           Countries
         </Link>
+
+        <Link href="/login" className="primary_btn mt-4 sm:hidden">
+          Log In
+        </Link>
       </div>
 
       <div
@@ -48,10 +52,7 @@ export default function Header() {
       </div>
 
       <div className="hidden sm:block">
-        <Link
-          href="/login"
-          className="primary_btn"
-        >
+        <Link href="/login" className="primary_btn">
           Log In
         </Link>
       </div>

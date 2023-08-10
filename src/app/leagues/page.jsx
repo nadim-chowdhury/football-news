@@ -8,6 +8,7 @@ export default function Leagues() {
   const [laLiga, setLaLiga] = useState([]);
   const [bundesLiga, setBundesLiga] = useState([]);
   const [serieA, setSerieA] = useState([]);
+  const [ligue1, setLigue1Data] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -30,7 +31,8 @@ export default function Leagues() {
             item.league.name === "Premier League" ||
             item.league.name === "La Liga" ||
             item.league.name === "Bundesliga" ||
-            item.league.name === "Serie A"
+            item.league.name === "Serie A" ||
+            item.league.name === "Ligue 1"
         );
       } catch (error) {
         console.error(error);
@@ -51,6 +53,9 @@ export default function Leagues() {
 
         const serieAData = await fetchLeague("Italy");
         setSerieA(serieAData);
+
+        const ligue1Data = await fetchLeague("France");
+        setLigue1Data(ligue1Data);
 
         setLoading(false);
       } catch (error) {
@@ -84,10 +89,13 @@ export default function Leagues() {
         </h2>
       </div>
 
-      <LeagueCard league={epl} />
-      <LeagueCard league={laLiga} />
-      <LeagueCard league={bundesLiga} />
-      <LeagueCard league={serieA} />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-4 gap-6">
+        <LeagueCard league={epl} />
+        <LeagueCard league={laLiga} />
+        <LeagueCard league={bundesLiga} />
+        <LeagueCard league={serieA} />
+        <LeagueCard league={ligue1} />
+      </div>
     </section>
   );
 }

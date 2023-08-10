@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function LeagueCard({ league }) {
   return (
-    <div className="mx-4 mt-14 bg-white border px-4 py-8 rounded-lg">
+    <div className="bg-white border px-4 py-8 rounded-lg">
       {league.map((item) => (
         <div key={item.league.id}>
-          <div className="flex flex-col sm:flex-row justify-center items-center mb-8">
-            <div className="flex flex-col items-center justify-between sm:mr-8">
+          <div className="flex flex-col lg:flex-row justify-center items-center mb-8">
+            <div className="flex flex-col items-center justify-between lg:mr-8">
               <Image
                 src={item.country.flag}
                 alt=""
@@ -19,7 +19,7 @@ export default function LeagueCard({ league }) {
               </h3>
             </div>
 
-            <div className="flex flex-col items-center justify-between mt-6 sm:mt-0">
+            <div className="flex flex-col items-center justify-between mt-6 lg:mt-0">
               <Image
                 src={item.league.logo}
                 alt=""
@@ -33,16 +33,16 @@ export default function LeagueCard({ league }) {
             </div>
           </div>
 
-          <table className="my-2 w-full text-center text-sm sm:text-base">
+          <table className="my-2 w-full text-center text-sm lg:text-base">
             <thead>
               <tr>
-                <th scope="col" class="py-3 bg-slate-100 rounded-l-lg">
+                <th scope="col" className="py-3 bg-slate-100 rounded-l-lg">
                   Year
                 </th>
-                <th scope="col" class="py-3 bg-slate-100">
+                <th scope="col" className="py-3 bg-slate-100">
                   Start Date
                 </th>
-                <th scope="col" class="py-3 bg-slate-100 rounded-r-lg">
+                <th scope="col" className="py-3 bg-slate-100 rounded-r-lg">
                   End Date
                 </th>
               </tr>
@@ -52,9 +52,9 @@ export default function LeagueCard({ league }) {
                 .sort((a, b) => b.year - a.year)
                 .map((season) => (
                   <tr key={season.year}>
-                    <td class="px-4 pt-2">{season.year}</td>
-                    <td class="px-4 pt-2">{season.start}</td>
-                    <td class="px-4 pt-2">{season.end}</td>
+                    <td className="px-4 pt-2">{season.year}</td>
+                    <td className="px-4 pt-2">{season.start}</td>
+                    <td className="px-4 pt-2">{season.end}</td>
                   </tr>
                 ))}
             </tbody>
