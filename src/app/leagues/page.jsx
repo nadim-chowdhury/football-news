@@ -8,6 +8,8 @@ export default function Leagues() {
   const [laLiga, setLaLiga] = useState([]);
   const [bundesLiga, setBundesLiga] = useState([]);
   const [serieA, setSerieA] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchLeague = async (country) => {
@@ -49,13 +51,30 @@ export default function Leagues() {
 
         const serieAData = await fetchLeague("Italy");
         setSerieA(serieAData);
+
+        setLoading(false);
       } catch (error) {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-center text-xl font-bold txt_gradient">
+        Error loading fixture data.
+      </p>
+    );
+  }
 
   return (
     <section>

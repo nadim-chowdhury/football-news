@@ -50,7 +50,7 @@ export default function Header() {
       <div className="hidden sm:block">
         <Link
           href="/login"
-          className="bg-gradient-to-tr from-red-600 to-blue-600 text-white px-4 py-1 rounded-full hover:bg-gradient-to-tr hover:from-red-600 hover:to-red-800 transition-all duration-300"
+          className="primary_btn"
         >
           Log In
         </Link>

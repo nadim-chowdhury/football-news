@@ -10,6 +10,10 @@
   @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-600 hover:to-blue-600 hover:transition-all hover:duration-300;
 }
 
+.primary_btn {
+  @apply bg-gradient-to-tr from-red-600 to-blue-600 text-white px-4 py-1 rounded-full hover:bg-gradient-to-tr hover:from-red-600 hover:to-red-800 transition-all duration-300;
+}
+
 .footer_txt {
   @apply txt_gradient border-b px-2 pb-2 mb-4;
 }
