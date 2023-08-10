@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 text-center mb-8 px-4">
         {teams.map((team) => (
           <div key={team.league}>
-            <h3 className="footer_txt font-bold select-none">{team.league}</h3>
+            <h3 className="footer_txt font-bold">{team.league}</h3>
 
             <div>
               {team.topTeams.map((teamName) => (
@@ -30,19 +30,19 @@ export default function Footer() {
         <div className="flex items-center justify-center mt-4 sm:mt-0">
           <Link
             href="https://nadim.vercel.app/"
-            className="txt_hover hover:text-rose-500 mr-2"
+            className="hover:text-rose-500 mr-2"
           >
             <AiOutlineGlobal />
           </Link>
           <Link
             href="https://github.com/nadim-chowdhury"
-            className="txt_hover hover:text-rose-500 mr-2"
+            className="hover:text-rose-500 mr-2"
           >
             <AiFillGithub />
           </Link>
           <Link
             href="https://www.linkedin.com/in/nadim-chowdhury"
-            className="txt_hover hover:text-rose-500"
+            className="hover:text-rose-500"
           >
             <AiFillLinkedin />
           </Link>

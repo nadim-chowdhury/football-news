@@ -62,8 +62,8 @@ export default function FixtureById() {
         </h2>
       </div>
 
-      <div className="flex items-center justify-around">
-        <div className="bg-white p-4 border rounded-lg text-center flex flex-col justify-between w-[40%]">
+      <div className="sm:flex sm:items-center sm:justify-around">
+        <div className="bg-white p-8 border rounded-lg text-center flex flex-col justify-between sm:w-[40%]">
           <Image
             src={fixture?.teams?.home?.logo}
             alt=""
@@ -71,16 +71,16 @@ export default function FixtureById() {
             height={72}
             className="mx-auto mb-4 h-16 object-contain"
           />
-          <h3 className="text-xl font-bold">
+          <h3 className="text-xl font-bold mt-4 txt_hover cursor-pointer">
             {fixture?.teams?.home?.name ? fixture.teams.home.name : ""}
           </h3>
         </div>
 
-        <h4 className="border-2 rounded-full p-4 txt_gradient font-bold my-8 mx-4">
+        <h4 className="border-2 rounded-full p-4 txt_gradient font-bold my-8 mx-4 text-center">
           VS
         </h4>
 
-        <div className="bg-white p-4 border rounded-lg text-center flex flex-col justify-between w-[40%]">
+        <div className="bg-white p-8 border rounded-lg text-center flex flex-col justify-between sm:w-[40%]">
           <Image
             src={fixture?.teams?.away?.logo}
             alt=""
@@ -88,13 +88,13 @@ export default function FixtureById() {
             height={72}
             className="mx-auto mb-4 h-16 object-contain"
           />
-          <h3 className="text-xl font-bold">
+          <h3 className="text-xl font-bold mt-4 txt_hover cursor-pointer">
             {fixture?.teams?.away?.name ? fixture.teams.away.name : ""}
           </h3>
         </div>
       </div>
 
-      <div className="text-center mt-14 py-8 bg-white border rounded-lg">
+      <div className="text-center mt-14 py-12 bg-white border rounded-lg">
         <p className="mb-4">
           <span className="txt_gradient font-bold">Venue Name:</span>&nbsp;
           {fixture?.fixture?.venue?.name}

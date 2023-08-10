@@ -18,12 +18,12 @@ export default function Header() {
       <div
         className={`${
           openMenu
-            ? "absolute flex flex-col h-screen bg-white border-l top-0 right-0 px-8 pt-20 text-end"
+            ? "absolute flex flex-col h-screen bg-white border-l top-0 right-0 px-8 pt-16 text-end"
             : "hidden"
         } sm:block`}
       >
         <button
-          className="sm:hidden ml-auto text-xl text-rose-500 mb-4"
+          className="sm:hidden ml-auto text-2xl hover:text-rose-500 mb-4"
           onClick={() => setOpenMenu(!openMenu)}
         >
           <AiFillCloseCircle />
@@ -45,6 +45,15 @@ export default function Header() {
         onClick={() => setOpenMenu(!openMenu)}
       >
         <FiMenu />
+      </div>
+
+      <div className="hidden sm:block">
+        <Link
+          href="/login"
+          className="bg-gradient-to-tr from-red-600 to-blue-600 text-white px-4 py-1 rounded-full hover:bg-gradient-to-tr hover:from-red-600 hover:to-red-800 transition-all duration-300"
+        >
+          Log In
+        </Link>
       </div>
     </header>
   );

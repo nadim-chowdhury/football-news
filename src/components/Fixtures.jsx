@@ -73,7 +73,7 @@ export default function Fixtures() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4 select-none">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
       {fixtures.map((data) => (
         <FixtureCard key={data.fixture.id} data={data} />
       ))}
