@@ -5,7 +5,6 @@ import axios from "axios";
 
 export default function TeamCard({ teamId, league }) {
   const [teamData, setTeamData] = useState({});
-  console.log("🚀 ~ file: TeamCard.jsx:8 ~ TeamCard ~ teamData:", teamData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -54,7 +53,7 @@ export default function TeamCard({ teamId, league }) {
 
   return (
     <div className="px-4 py-6 bg-white border rounded-lg">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-4">
         <Image
           src={teamData?.team?.logo}
           alt=""
@@ -67,25 +66,50 @@ export default function TeamCard({ teamId, league }) {
         </h3>
       </div>
 
-      <div>
-        <h3>{teamData?.form}</h3>
-        <h3>{teamData?.clean_sheet?.home}</h3>
-        <h3>{teamData?.clean_sheet?.away}</h3>
-        <h3>{teamData?.clean_sheet?.total}</h3>
+      <div className="mb-4">
+        <h3 className="text-center border rounded-lg py-2 my-2">
+          {teamData?.form.slice(24, 40)}
+        </h3>
+        <h3 className="txt_gradient text-center text-lg font-bold mt-4 mb-2">
+          Clean Sheet
+        </h3>
+        <div className="flex justify-around">
+          <p>Home: {teamData?.clean_sheet?.home}</p>
+          <p>Away: {teamData?.clean_sheet?.away}</p>
+          <p>Total: {teamData?.clean_sheet?.total}</p>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h3 className="txt_gradient text-center text-lg font-bold mt-4 mb-2">
+          Match
+        </h3>
+        <div className="flex justify-between text-center">
+          <div className="md:flex md:justify-around w-[50%]">
+            <p>Wins: {teamData?.fixtures?.wins?.total}</p>
+            <p>Loses: {teamData?.fixtures?.loses?.total}</p>
+          </div>
+          <div className="md:flex md:justify-around w-[50%]">
+            <p>Draws: {teamData?.fixtures?.draws?.total}</p>
+            <p>Played: {teamData?.fixtures?.played?.total}</p>
+          </div>
+        </div>
       </div>
 
       <div>
-        <p>{teamData?.fixtures?.wins?.total}</p>
-        <p>{teamData?.fixtures?.loses?.total}</p>
-        <p>{teamData?.fixtures?.draws?.total}</p>
-        <p>{teamData?.fixtures?.played?.total}</p>
-      </div>
-
-      <div>
-        <p>{teamData?.biggest?.streak?.wins}</p>
-        {/* <p>{teamData?.biggest?.wins?.home}</p>
-        <p>{teamData?.biggest?.wins?.away}</p>
-        <p>{teamData?.goals?.for?.total}</p> */}
+        <h3 className="txt_gradient text-center text-lg font-bold mt-4 mb-2">
+          Records
+        </h3>
+        <div className="flex justify-between text-center">
+          <div className="md:flex md:justify-around w-[50%]">
+            <p>Biggest Wins: {teamData?.biggest?.streak?.wins}</p>
+            <p>Home: {teamData?.biggest?.wins?.home}</p>
+          </div>
+          <div className="md:flex md:justify-around w-[50%]">
+            <p>Away: {teamData?.biggest?.wins?.away}</p>
+            <p>Goals Scored: {teamData?.goals?.for?.total?.total}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
