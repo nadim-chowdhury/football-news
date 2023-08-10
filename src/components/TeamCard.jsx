@@ -39,7 +39,9 @@ export default function TeamCard({ teamId, league }) {
 
   if (loading) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
+        Loading...
+      </p>
     );
   }
 
