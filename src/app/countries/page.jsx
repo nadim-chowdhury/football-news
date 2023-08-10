@@ -1,12 +1,13 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Countries() {
+  const itemsPerPage = 12;
   const [countries, setCountries] = useState([]);
-  console.log("🚀 ~ file: page.jsx:5 ~ Countries ~ countries:", countries);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const axios = require("axios");
@@ -34,6 +35,10 @@ export default function Countries() {
     fetchData();
   }, []);
 
+  const totalPages = Math.ceil(countries.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   if (loading) {
     return (
       <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
@@ -57,7 +62,7 @@ export default function Countries() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4">
-        {countries.map((data, i) => (
+        {countries.slice(startIndex, endIndex).map((data, i) => (
           <div
             key={i}
             className="flex flex-col justify-center items-center bg-white border p-4 rounded-lg"
@@ -73,12 +78,33 @@ export default function Countries() {
               height={64}
               className="h-16 object-cover rounded-full"
             />
-            <h4 className="txt_gradient text-lg font-bold my-4">
+            <h4 className="txt_gradient text-lg font-bold my-4 text-center">
               {data?.name ? data?.name : "Error 404"}
             </h4>
             <p>{data?.code ? data?.code : "Error 404"}</p>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={`primary_btn mr-4 ${
+            currentPage === 1 && "disabled:opacity-50"
+          }`}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className={`primary_btn ${
+            currentPage === totalPages && "disabled:opacity-50"
+          }`}
+        >
+          Next
+        </button>
       </div>
     </section>
   );
