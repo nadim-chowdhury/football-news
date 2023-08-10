@@ -22,7 +22,9 @@ export default function FixtureCard({ data }) {
           </p>
         </div>
 
-        <h4 className="border-2 rounded-full p-2 txt_gradient font-bold">VS</h4>
+        <h4 className="border-2 rounded-full p-2 txt_gradient font-bold mx-2">
+          VS
+        </h4>
 
         <div className="flex flex-col justify-center w-[40%]">
           <Image

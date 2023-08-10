@@ -6,7 +6,6 @@ import { useParams } from "next/navigation";
 
 export default function FixtureById() {
   const [fixture, setFixture] = useState({});
-  console.log("🚀 ~ file: page.jsx:9 ~ FixtureById ~ fixture:", fixture);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -94,7 +93,23 @@ export default function FixtureById() {
         </div>
       </div>
 
+      <div className="flex items-center justify-center mt-14">
+        <p className="py-4 px-8 font-bold bg-white border rounded-lg">
+          {fixture?.goals?.home}
+        </p>
+        <p className="py-4 px-8 font-bold mx-4 border rounded-lg txt_gradient">
+          Score
+        </p>
+        <p className="py-4 px-8 font-bold bg-white border rounded-lg">
+          {fixture?.goals?.away}
+        </p>
+      </div>
+
       <div className="text-center mt-14 py-12 bg-white border rounded-lg">
+        <h4 className="mb-4 rounded-lg text-center font-bold txt_gradient">
+          UTC:&nbsp;
+          {new Date(fixture?.fixture?.timestamp * 1000).toLocaleTimeString()}
+        </h4>
         <p className="mb-4">
           <span className="txt_gradient font-bold">Venue Name:</span>&nbsp;
           {fixture?.fixture?.venue?.name}
@@ -107,9 +122,13 @@ export default function FixtureById() {
           <span className="txt_gradient font-bold">League Country:</span>&nbsp;
           {fixture?.league?.country}
         </p>
-        <p>
+        <p className="mb-4">
           <span className="txt_gradient font-bold">League Season:</span>&nbsp;
           {fixture?.league?.season}
+        </p>
+        <p>
+          <span className="txt_gradient font-bold">Round:</span>&nbsp;
+          {fixture?.league?.round}
         </p>
       </div>
 
