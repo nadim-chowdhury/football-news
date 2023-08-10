@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import FixtureStatistics from "../../../components/FixtureStatistics";
 
 export default function FixtureById() {
   const [fixture, setFixture] = useState({});
@@ -105,7 +106,7 @@ export default function FixtureById() {
         </p>
       </div>
 
-      <div className="text-center mt-14 py-12 bg-white border rounded-lg">
+      <div className="text-center my-14 py-12 bg-white border rounded-lg">
         <h4 className="mb-4 rounded-lg text-center font-bold txt_gradient">
           UTC:&nbsp;
           {new Date(fixture?.fixture?.timestamp * 1000).toLocaleTimeString()}
@@ -131,6 +132,8 @@ export default function FixtureById() {
           {fixture?.league?.round}
         </p>
       </div>
+
+      <FixtureStatistics />
 
       {/* <div>
           {fixture?.players[0]?.players?.map((data) => (

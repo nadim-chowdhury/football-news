@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 
 export default function Countries() {
   const itemsPerPage = 12;
@@ -10,8 +11,6 @@ export default function Countries() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const axios = require("axios");
-
     const options = {
       method: "GET",
       url: "https://api-football-v1.p.rapidapi.com/v3/teams/countries",
