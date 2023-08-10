@@ -40,6 +40,15 @@ export default function Login() {
           </Link>
         </p>
       </div>
+
+      <div className="mt-14 text-center txt_gradient">
+        <p>
+          This is a personal project for practicing my web development ability &
+          skills
+        </p>
+        <p>nadim-chowdhury@outlook.com</p>
+        <p>+880 1971 258803</p>
+      </div>
     </div>
   );
 }

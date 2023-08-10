@@ -38,20 +38,6 @@ export default function Countries() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  if (loading) {
-    return (
-      <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
-    );
-  }
-
-  if (error) {
-    return (
-      <p className="text-center text-xl font-bold txt_gradient">
-        Error loading countries data.
-      </p>
-    );
-  }
-
   return (
     <section>
       <div className="px-4 mb-14">
@@ -59,6 +45,16 @@ export default function Countries() {
           National Teams
         </h2>
       </div>
+
+      {loading && (
+        <p className="text-center text-xl font-bold txt_gradient">Loading...</p>
+      )}
+
+      {error && (
+        <p className="text-center text-xl font-bold txt_gradient">
+          Error loading countries data.
+        </p>
+      )}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4">
         {countries.slice(startIndex, endIndex).map((data, i) => (
@@ -85,26 +81,28 @@ export default function Countries() {
         ))}
       </div>
 
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={() => setCurrentPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={`primary_btn mr-4 ${
-            currentPage === 1 && "disabled:opacity-50"
-          }`}
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => setCurrentPage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className={`primary_btn ${
-            currentPage === totalPages && "disabled:opacity-50"
-          }`}
-        >
-          Next
-        </button>
-      </div>
+      {loading === false && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`primary_btn mr-4 ${
+              currentPage === 1 && "disabled:opacity-50"
+            }`}
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`primary_btn ${
+              currentPage === totalPages && "disabled:opacity-50"
+            }`}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </section>
   );
 }
