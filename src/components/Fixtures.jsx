@@ -43,8 +43,7 @@ export default function Fixtures() {
             item.league.country === "Spain" ||
             item.league.country === "Germany" ||
             item.league.country === "Italy" ||
-            item.league.country === "France" ||
-            item.league.country === "USA"
+            item.league.country === "France"
         );
 
         setFixtures(filteredResponse);
