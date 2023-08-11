@@ -2,14 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function FixtureCard({ data }) {
-  const { fixture, league, teams, goals, score } = data;
+  const { fixture, teams } = data;
+
   return (
     <Link
       href={`/match/${fixture.id}`}
       className="border rounded-lg bg-white p-4 flex flex-col justify-between hover:shadow-md transition-all duration-300"
     >
-      <div className="flex justify-between items-center pt-4 overflow-scroll sm:overflow-hidden">
-        <div className="flex flex-col justify-center w-[40%]">
+      <div className="flex justify-between items-center pt-4">
+        <div className="fixture_card_teams">
           <Image
             src={teams.home.logo}
             alt=""
@@ -26,7 +27,7 @@ export default function FixtureCard({ data }) {
           VS
         </h4>
 
-        <div className="flex flex-col justify-center w-[40%]">
+        <div className="fixture_card_teams">
           <Image
             src={teams.away.logo}
             alt=""

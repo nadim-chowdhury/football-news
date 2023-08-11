@@ -47,7 +47,9 @@ export default function Countries() {
       </div>
 
       {loading && (
-        <p className="text-center text-xl font-bold txt_gradient h-screen">Loading...</p>
+        <p className="text-center text-xl font-bold txt_gradient h-screen">
+          Loading...
+        </p>
       )}
 
       {error && (
@@ -81,8 +83,8 @@ export default function Countries() {
         ))}
       </div>
 
-      {loading === false && (
-        <div className="flex justify-center mt-8">
+      {!loading && !error && (
+        <div className="flex justify-center mt-10">
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 1}

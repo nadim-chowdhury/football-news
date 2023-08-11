@@ -74,7 +74,7 @@ export default function FixtureById() {
             className="mx-auto mb-4 h-16 object-contain"
           />
           <h3 className="text-xl font-bold mt-4 txt_hover cursor-pointer">
-            {fixture?.teams?.home?.name ? fixture.teams.home.name : ""}
+            {fixture?.teams?.home?.name && fixture.teams.home.name}
           </h3>
         </div>
 
@@ -91,22 +91,24 @@ export default function FixtureById() {
             className="mx-auto mb-4 h-16 object-contain"
           />
           <h3 className="text-xl font-bold mt-4 txt_hover cursor-pointer">
-            {fixture?.teams?.away?.name ? fixture.teams.away.name : ""}
+            {fixture?.teams?.away?.name && fixture.teams.away.name}
           </h3>
         </div>
       </div>
 
-      <div className="flex items-center justify-center mt-14">
-        <p className="py-4 px-8 font-bold bg-white border rounded-lg">
-          {fixture?.goals?.home}
-        </p>
-        <p className="py-4 px-8 font-bold mx-4 border rounded-lg txt_gradient">
-          Score
-        </p>
-        <p className="py-4 px-8 font-bold bg-white border rounded-lg">
-          {fixture?.goals?.away}
-        </p>
-      </div>
+      {(fixture?.goals?.home || fixture?.goals?.away) && (
+        <div className="flex items-center justify-center mt-14">
+          <p className="py-4 px-8 font-bold bg-white border rounded-lg">
+            {fixture?.goals?.home}
+          </p>
+          <p className="py-4 px-8 font-bold mx-4 border rounded-lg txt_gradient">
+            Score
+          </p>
+          <p className="py-4 px-8 font-bold bg-white border rounded-lg">
+            {fixture?.goals?.away}
+          </p>
+        </div>
+      )}
 
       <div className="text-center my-14 py-12 bg-white border rounded-lg">
         <h4 className="mb-4 rounded-lg text-center font-bold txt_gradient">
@@ -136,15 +138,6 @@ export default function FixtureById() {
       </div>
 
       <FixtureStatistics />
-
-      {/* <div>
-          {fixture?.players[0]?.players?.map((data) => (
-            <div key={data.player.id}>
-              <Image src={data.player.photo} alt="" width={48} height={48} />
-              <h3>{data.player.name}</h3>
-            </div>
-          ))}
-        </div> */}
     </div>
   );
 }

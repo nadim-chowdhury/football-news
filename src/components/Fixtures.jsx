@@ -39,11 +39,17 @@ export default function Fixtures() {
 
         const filteredResponse = response.data.response.filter(
           (item) =>
-            item.league.country === "England" ||
-            item.league.country === "Spain" ||
-            item.league.country === "Germany" ||
-            item.league.country === "Italy" ||
-            item.league.country === "France"
+            (item.league.name === "Premier League" &&
+              item.league.country === "England") ||
+            (item.league.name === "La Liga" &&
+              item.league.country === "Spain") ||
+            (item.league.name === "Bundesliga" &&
+              item.league.country === "Germany") ||
+            (item.league.name === "Serie A" &&
+              item.league.country === "Italy") ||
+            (item.league.name === "Ligue 1" &&
+              item.league.country === "France") ||
+            item.league.country === "USA"
         );
 
         setFixtures(filteredResponse);
