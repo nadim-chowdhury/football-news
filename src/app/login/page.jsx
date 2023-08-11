@@ -7,7 +7,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <>
       <div className="px-4 mb-14">
         <h2 className="text-3xl font-bold text-center txt_gradient">Log in</h2>
       </div>
@@ -41,7 +41,7 @@ export default function Login() {
         </p>
       </div>
 
-      <div className="mt-14 text-center txt_gradient">
+      <div className="auth_bottom_info">
         <p>
           This is a personal project for practicing my web development ability &
           skills
@@ -49,6 +49,6 @@ export default function Login() {
         <p>nadim-chowdhury@outlook.com</p>
         <p>+880 1971 258803</p>
       </div>
-    </div>
+    </>
   );
 }

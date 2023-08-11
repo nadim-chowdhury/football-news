@@ -39,7 +39,7 @@ export default function TeamCard({ teamId, league }) {
 
   if (loading) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient h-screen">
+      <p className="text-center text-xl font-bold txt_gradient h-[50vh]">
         Loading...
       </p>
     );
@@ -69,9 +69,14 @@ export default function TeamCard({ teamId, league }) {
       </div>
 
       <div className="mb-4">
+        <h3 className="txt_gradient text-center text-lg font-bold mt-4 mb-2">
+          {new Date().getFullYear().toString() - 1} &nbsp;
+          {new Date().getFullYear().toString()}
+        </h3>
         <h3 className="text-center border rounded-lg py-2 my-2">
           {teamData?.form.slice(24, 40)}
         </h3>
+
         <h3 className="txt_gradient text-center text-lg font-bold mt-4 mb-2">
           Clean Sheet
         </h3>

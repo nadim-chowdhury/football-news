@@ -18,6 +18,10 @@
   @apply flex flex-col justify-center w-[40%] overflow-auto;
 }
 
+.auth_bottom_info {
+  @apply mt-14 mx-10 text-center txt_gradient h-[40vh] flex flex-col justify-center items-center;
+}
+
 .footer_txt {
   @apply txt_gradient border-b px-2 pb-2 mb-4;
 }

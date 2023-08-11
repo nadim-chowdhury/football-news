@@ -52,7 +52,7 @@ export default function LeagueCard({ country }) {
 
   if (loading) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient h-screen">
+      <p className="text-center text-xl font-bold txt_gradient h-[50vh]">
         Loading...
       </p>
     );

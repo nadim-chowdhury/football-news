@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import FixtureStatistics from "../../../components/FixtureStatistics";
+import MatchStatistics from "../../../components/MatchStatistics";
 
 export default function FixtureById() {
   const [fixture, setFixture] = useState({});
@@ -137,7 +137,13 @@ export default function FixtureById() {
         </p>
       </div>
 
-      <FixtureStatistics />
+      <div className="px-4 mb-14">
+        <h2 className="text-3xl font-bold text-center txt_gradient">
+          Match Facts
+        </h2>
+      </div>
+
+      <MatchStatistics />
     </div>
   );
 }

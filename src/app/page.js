@@ -1,15 +1,11 @@
-import Fixtures from "../components/Fixtures";
+import UpcomingMatches from "../components/UpcomingMatches";
+import OldMatches from "../components/OldMatches";
 
 export default function Home() {
   return (
     <section>
-      <div className="px-4 mb-14">
-        <h2 className="text-3xl font-bold text-center txt_gradient">
-          Upcoming Matches
-        </h2>
-      </div>
-
-      <Fixtures />
+      <UpcomingMatches />
+      <OldMatches />
     </section>
   );
 }

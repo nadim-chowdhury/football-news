@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import FixtureCard from "./FixtureCard";
+import MatchCard from "./MatchCard";
 
-export default function Fixtures() {
+export default function OldMatches() {
   const [fixtures, setFixtures] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ export default function Fixtures() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
+    const day = currentDate.getDate() - 1;
 
     const options = {
       method: "GET",
@@ -80,10 +80,17 @@ export default function Fixtures() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4">
-      {fixtures.map((data) => (
-        <FixtureCard key={data.fixture.id} data={data} />
-      ))}
-    </div>
+    <>
+      <div className="px-4 my-14">
+        <h2 className="text-3xl font-bold text-center txt_gradient">
+          Old Matches
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4">
+        {fixtures.map((data) => (
+          <MatchCard key={data.fixture.id} data={data} />
+        ))}
+      </div>
+    </>
   );
 }

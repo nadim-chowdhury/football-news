@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function FixtureCard({ data }) {
+export default function MatchCard({ data }) {
   const { fixture, teams } = data;
 
   return (
