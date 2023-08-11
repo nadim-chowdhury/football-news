@@ -73,7 +73,7 @@ export default function OldMatches() {
 
   if (error) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient">
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
         Error loading fixture data.
       </p>
     );

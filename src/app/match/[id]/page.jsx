@@ -50,7 +50,7 @@ export default function FixtureById() {
 
   if (error) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient">
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
         Error loading fixture data.
       </p>
     );
@@ -64,7 +64,7 @@ export default function FixtureById() {
         </h2>
       </div>
 
-      <div className="sm:flex sm:items-center sm:justify-around">
+      <div className="sm:flex sm:items-center sm:justify-between">
         <div className="bg-white p-8 border rounded-lg text-center flex flex-col justify-between sm:w-[40%]">
           <Image
             src={fixture?.teams?.home?.logo}

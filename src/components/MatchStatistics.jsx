@@ -45,32 +45,33 @@ export default function MatchStatistics() {
 
   if (error) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient">
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
         Error loading fixture data.
       </p>
     );
   }
 
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-between gap-6 md:flex-col">
       {fixtureStatastics ? (
         fixtureStatastics?.map((item, i) => (
-          <div
-            key={i + Math.random()}
-            className="bg-white border p-4 rounded-lg w-[45%]"
-          >
-            <h3 className="font-bold text-lg text-center txt_gradient border-b pb-2 mb-2">
+          <div key={i + Math.random()} className="w-full">
+            <h3 className="font-bold text-xl text-center lg:text-start txt_gradient mb-6 lg:my-6">
               {item?.team?.id === 463 ? "Home" : "Away"}
             </h3>
-            {item?.statistics?.map((data, i) => (
-              <div key={i} className="border-b py-2 text-center">
-                <h4>{data?.type ? data?.type : "Unavailable"}</h4>
-                <p className="text-slate-500">
-                  {data?.value ? data?.value : "Unavailable"}
-                </p>
-              </div>
-            ))}
-            <p className="text-slate-500 text-center py-2">Unavailable</p>
+            <div className="rounded-lg overflow-hidden border py-2 md:py-0 bg-white md:bg-transparent md:border-0 w-full md:grid md:grid-cols-4 md:gap-4 ">
+              {item?.statistics?.map((data, i) => (
+                <div
+                  key={i}
+                  className="bg-white p-4 lg:flex lg:justify-between overflow-auto md:rounded-lg md:border py-2 text-center"
+                >
+                  <h4>{data?.type ? data?.type : "Unavailable"}</h4>
+                  <p className="text-purple-500">
+                    {data?.value ? data?.value : "Unavailable"}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         ))
       ) : (

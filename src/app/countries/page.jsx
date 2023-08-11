@@ -53,7 +53,7 @@ export default function Countries() {
       )}
 
       {error && (
-        <p className="text-center text-xl font-bold txt_gradient">
+        <p className="text-center text-xl font-bold txt_gradient h-screen">
           Error loading countries data.
         </p>
       )}

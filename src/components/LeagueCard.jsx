@@ -52,7 +52,7 @@ export default function LeagueCard({ country }) {
 
   if (loading) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient h-[50vh]">
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
         Loading...
       </p>
     );
@@ -60,7 +60,7 @@ export default function LeagueCard({ country }) {
 
   if (error) {
     return (
-      <p className="text-center text-xl font-bold txt_gradient">
+      <p className="text-center text-xl font-bold txt_gradient h-screen">
         Error loading fixture data.
       </p>
     );
